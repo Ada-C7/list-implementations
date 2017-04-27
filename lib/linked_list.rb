@@ -57,12 +57,29 @@ class LinkedList
 
 
   def include?(key)
+    current = @head
+    while current != nil
+      return true if current.data == key
+      current = current.next
+    end
+    return false
   end
 
   def size
+    return @size
   end
 
   def max
+    return nil if @size == 0
+    current = @head
+    max = current.data
+    while current != nil
+      if current.data > max
+        max = current.data
+      end
+      current = current.next
+    end
+    return max
   end
 
   def to_s
