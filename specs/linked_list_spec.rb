@@ -1,33 +1,29 @@
 require_relative 'spec_helper'
 
 describe LinkedList do
-  let(:list) { LinkedList.new(0) }
+  let(:list) { LinkedList.new }
 
   describe "initialize" do
     it "must return a LinkedList" do
       list.must_be_instance_of LinkedList
     end
 
-    it "must return a list with one item" do
-      list.size.must_equal 1
-    end
-
-    it "must return a list that includes the parameter" do
-      list.include?(0).must_equal true
+    it "must return an empty list" do
+      list.size.must_equal 0
     end
   end
 
   describe "size" do
     it "must return correct size" do
-      list.size.must_equal 1
+      list.size.must_equal 0
 
       list.add(1)
 
-      list.size.must_equal 2
+      list.size.must_equal 1
 
       list.delete(1)
 
-      list.size.must_equal 1
+      list.size.must_equal 0
     end
   end
 
@@ -51,7 +47,8 @@ describe LinkedList do
 
   describe "delete" do
     let(:list) {
-      l = LinkedList.new(0)
+      l = LinkedList.new
+      l.add(0)
       l.add(1)
       l.add(2)
 
@@ -79,7 +76,8 @@ describe LinkedList do
 
   describe "include?" do
     let(:list) {
-      l = LinkedList.new(0)
+      l = LinkedList.new
+      l.add(0)
       l.add(1)
 
       l
@@ -96,7 +94,8 @@ describe LinkedList do
 
   describe "max" do
     let(:list) {
-      l = LinkedList.new(0)
+      l = LinkedList.new
+      l.add(0)
       l.add(10)
       l.add(1)
 
