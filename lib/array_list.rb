@@ -16,6 +16,18 @@ class ArrayList
     @size += 1
   end
 
+  def add_in_order(value)
+    @size.downto(0) do |i|
+      if i == 0 || @storage[i-1] <= value
+        @storage[i] = value
+        break
+      else
+        @storage[i] = @storage[i-1]
+      end
+    end
+    @size += 1
+  end
+
   # Deletes the _last_ value in the array
   def delete
     # raise some error if @size == 0

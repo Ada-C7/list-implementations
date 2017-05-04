@@ -7,7 +7,7 @@ class Lotto
     while @ticket.size < 5
       auto_num = rand(55) + 1
       if !@ticket.include?(auto_num)
-        @ticket.add(auto_num)
+        @ticket.add_in_order(auto_num)
       end
     end
   end
