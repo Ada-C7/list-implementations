@@ -31,6 +31,27 @@ class LinkedList
     self
   end
 
+  def add_in_order(value)
+    if @size == 0
+      @head = Node.new(value)
+    elsif value < @head.data
+      @head = Node.new(value, @head)
+    else
+      current = @head
+      loop do
+        if current.next == nil
+          current.next = Node.new(value)
+          break
+        elsif current.next.data >= value
+          current.next = Node.new(value, current.next)
+          break
+        end
+        current = current.next
+      end
+    end
+    @size += 1
+  end
+
   def delete(val)
     return nil if @size == 0
     if @head.data == val
