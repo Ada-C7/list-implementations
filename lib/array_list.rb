@@ -65,7 +65,6 @@ class ArrayList
       end
     end
     @size -= shift_count
-    return @storage
   end
 
   def to_s
